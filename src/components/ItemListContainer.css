@@ -1,0 +1,12 @@
+.message {
+  color: #dbaf5c;
+  text-transform: capitalize;
+  font-family: "Great Vibes", cursive;
+  margin-top: 33px;
+  font-size: 25px;
+}
+
+.message2 {
+  font-weight: bold;
+  font-size: 30px;
+}
