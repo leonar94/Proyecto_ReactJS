@@ -11,11 +11,12 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     function quitar () {
-        if (count>1) {
+        if (count>0) {
         setCount (count - 1)
         }
         
     }
+
 
     const agregarCarrito=()=>{
         onAdd(count)
@@ -24,9 +25,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
     return (
     
         <div>
-        <button onClick={()=>setCount(quitar)}>-</button>
-        <button onClick={()=>setCount(agregarCarrito)} variant="primary">Agregar al carrito</button>{' '}
-        <button onClick={()=>setCount(agregar)}>+</button>
+        <button onClick={quitar}>-</button>
+        <button onClick={agregarCarrito} variant="primary" disabled={count===0}>Agregar al carrito</button>{' '}
+        <button onClick={agregar}>+</button>
             <h1>{count}</h1>
         </div>
     )
