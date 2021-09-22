@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 
 const Item = ({producto}) => {
     return (
+        <div className='card d-flex'>
         <div key={producto.id} className='card w-25 mt.3'>
         <div className='card-header' >{producto.nombre}</div>
         <div className='card-body'>
@@ -12,8 +13,11 @@ const Item = ({producto}) => {
                 <Button variant="outline-secondary">{producto.precio}</Button>{' '}
             </div>
             </div>
+        </div>
+           
+           
 
-            
+           
     )
 }
 

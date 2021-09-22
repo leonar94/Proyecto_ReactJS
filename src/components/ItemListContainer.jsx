@@ -3,24 +3,34 @@ import ItemCount from './ItemCount'
 import { useState, useEffect } from 'react'
 import { peticion } from '../utils/Mock'
 import ItemList from '../ItemList/ItemList'
-
-
+import { useParams } from 'react-router-dom'
 
 
 function ItemListContainer ({mensaje,mensaje2}) {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
+  const { idCategoria } = useParams ()
+
+ 
 
   useEffect (() => {
 
-    peticion
-    //.then para sacar lo que esta dentro de la respuesta que es exitoso
+    if (idCategoria) {
+      peticion
+      .then(respuesta => {
+        setProductos(respuesta.filter(productos => productos.categoria === idCategoria))
+        }
+      )
+      .finally(()=> setLoading(false)) 
+    }else {
+        peticion
       .then(respuesta => {
         setProductos(respuesta)
-      })
-      .finally(()=> setLoading(false))    
-  }
-  )
+        }
+      )
+      .finally(()=> setLoading(false)) 
+    }
+  }, [idCategoria])
   
 
 console.log(productos)
