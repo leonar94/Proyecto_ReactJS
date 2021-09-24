@@ -1,6 +1,15 @@
+import ItemCount from "../ItemCount"
+import { useState } from "react"
+
 
 
 const ItemDetail = ({producto}) => {
+    const [cantidadSelec, setCantidadSelec] = useState(0)
+
+    const onAdd = (cant) => {
+        console.log(cant)
+        setCantidadSelec (cant)
+      }
 
     return (
         <>
@@ -10,6 +19,7 @@ const ItemDetail = ({producto}) => {
                 <img src={producto.foto} className='w-100'    alt ='foto'/>
             </div>        
             </div>
+            <ItemCount stock={7} initial={1} onAdd={onAdd} />
         </>
     )
 }
